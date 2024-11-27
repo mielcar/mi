@@ -1,10 +1,44 @@
 'use client'
 
+import {DropdownDivider, DropdownItem, DropdownLabel, DropdownMenu,} from '@/components/dropdown'
 import {Sidebar, SidebarBody, SidebarItem, SidebarLabel, SidebarSection,} from '@/components/sidebar'
 import {SidebarLayout} from '@/components/sidebar-layout'
-
+import {
+    ArrowRightStartOnRectangleIcon,
+    LightBulbIcon,
+    ShieldCheckIcon,
+    UserCircleIcon,
+} from '@heroicons/react/16/solid'
 import {Cog6ToothIcon, HomeIcon, Square2StackIcon, TicketIcon,} from '@heroicons/react/20/solid'
 import {usePathname} from 'next/navigation'
+import {Mission} from "@/app/lib/definitions";
+import {fetchMission} from "@/app/lib/data";
+import {useState} from "react";
+
+function AccountDropdownMenu({anchor}: { anchor: 'top start' | 'bottom end' }) {
+    return (
+        <DropdownMenu className="min-w-64" anchor={anchor}>
+            <DropdownItem href="#">
+                <UserCircleIcon/>
+                <DropdownLabel>My account</DropdownLabel>
+            </DropdownItem>
+            <DropdownDivider/>
+            <DropdownItem href="#">
+                <ShieldCheckIcon/>
+                <DropdownLabel>Privacy policy</DropdownLabel>
+            </DropdownItem>
+            <DropdownItem href="#">
+                <LightBulbIcon/>
+                <DropdownLabel>Share feedback</DropdownLabel>
+            </DropdownItem>
+            <DropdownDivider/>
+            <DropdownItem href="#">
+                <ArrowRightStartOnRectangleIcon/>
+                <DropdownLabel>Sign out</DropdownLabel>
+            </DropdownItem>
+        </DropdownMenu>
+    )
+}
 
 export function ApplicationLayout({
                                       children
@@ -39,7 +73,6 @@ export function ApplicationLayout({
                     </SidebarBody>
                 </Sidebar>
             }
-            navbar={}
         >
             {children}
         </SidebarLayout>
