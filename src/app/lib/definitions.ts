@@ -1,8 +1,3 @@
-export type MissionResult = {
-    result: string;
-    missionState: Mission;
-}
-
 export type MissionRequest = {
     answer: string;
 }
