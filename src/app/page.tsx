@@ -30,7 +30,7 @@ export default function Home() {
 
     function onPasswordCheck() {
         authenticate(password).then(result => {
-            if (result.isAuthenticated()) {
+            if (result._isAuthenticated) {
                 setWrongPass(false);
                 setMission(result);
             } else {
