@@ -7,21 +7,17 @@ import {Divider} from "@/components/divider";
 import {Button} from "@/components/button";
 import {ChangeEvent, useEffect, useState} from "react";
 import {authenticate, fetchMission} from "@/app/lib/data";
-import {Mission} from "@/app/lib/definitions";
 import {Andrew} from "@/components/andrew";
 
 export default function Home() {
     const [password, setPassword] = useState('');
     const [wrongPass, setWrongPass] = useState(false);
     const [mission, setMission] = useState(null)
-    const [isLoading, setLoading] = useState(true)
 
     useEffect(() => {
         fetchMission()
             .then((mission) => {
-                console.log(mission);
                 setMission(mission)
-                setLoading(false)
             })
     }, [])
 
@@ -34,9 +30,8 @@ export default function Home() {
 
     function onPasswordCheck() {
         authenticate(password).then(result => {
-            if (result.isAuthenticated) {
+            if (result.isAuthenticated()) {
                 setWrongPass(false);
-                console.log(result)
                 setMission(result);
             } else {
                 setWrongPass(true);
@@ -49,11 +44,11 @@ export default function Home() {
             <Heading>Briefing</Heading>
             <Divider className="my-10 mt-6"></Divider>
             <Andrew>
-                        <p>Czołem Tajniaku Doma, to ja Andrzej Duda, pierwszy, najważniejszy i najodważniejszy obywatel
-                            RP.</p>
-                        <p>Mam dla Ciebie super tajną misję której tylko Ty możesz sprostać.</p>
-                        <p>Zanim przejdziemy do szczegółów muszę upewnić się, że Ty to Ty a nie kto inny.</p>
-                        <p>Gdzieś na Twoim balkonie została ukryta teka z tajnym hasłem.</p>
+                <p>Czołem Tajniaku Doma, to ja Andrzej Duda, pierwszy, najważniejszy i najodważniejszy obywatel
+                    RP.</p>
+                <p>Mam dla Ciebie super tajną misję której tylko Ty możesz sprostać.</p>
+                <p>Zanim przejdziemy do szczegółów muszę upewnić się, że Ty to Ty a nie kto inny.</p>
+                <p>Gdzieś na Twoim balkonie została ukryta teka z tajnym hasłem.</p>
             </Andrew>
             <Divider className="my-10" soft></Divider>
             {!mission._isAuthenticated && <form className="mx-auto max-w-4xl">
