@@ -17,7 +17,7 @@ export default function Home() {
     useEffect(() => {
         fetchMission()
             .then((mission) => {
-                setMission(mission)
+                setMission(mission);
             })
     }, [])
 
@@ -30,7 +30,7 @@ export default function Home() {
 
     function onPasswordCheck() {
         authenticate(password).then(result => {
-            if (result._isAuthenticated) {
+            if (result.isAuthenticated) {
                 setWrongPass(false);
                 setMission(result);
             } else {
@@ -51,7 +51,7 @@ export default function Home() {
                 <p>Gdzieś na Twoim balkonie została ukryta teka z tajnym hasłem.</p>
             </Andrew>
             <Divider className="my-10" soft></Divider>
-            {!mission._isAuthenticated && <form className="mx-auto max-w-4xl">
+            {!mission.isAuthenticated && <form className="mx-auto max-w-4xl">
                 <section className="grid gap-x-8 gap-y-6 sm:grid-cols-2">
                     <div className="space-y-1">
                         <Subheading>Tajne Hasło</Subheading>
@@ -71,9 +71,10 @@ export default function Home() {
                     <Button onClick={onPasswordCheck}>Weryfikuj Hasło</Button>
                 </div>
             </form>}
-            {mission._isAuthenticated && <>
+            {mission.isAuthenticated && <>
                 <Andrew>
-                    <p>asdasd</p>
+                    <p>Ah więc Ty to Ty! Doskonale!</p>
+                    <p>Kliknij dalej aby zapoznać się ze szczegółami swojej pierwszej misji.</p>
                 </Andrew>
                 <div className="flex justify-end gap-4">
                     <Button href="/mission1">Kontynuuj</Button>

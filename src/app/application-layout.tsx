@@ -11,9 +11,6 @@ import {
 } from '@heroicons/react/16/solid'
 import {Cog6ToothIcon, HomeIcon, Square2StackIcon, TicketIcon,} from '@heroicons/react/20/solid'
 import {usePathname} from 'next/navigation'
-import {Mission} from "@/app/lib/definitions";
-import {fetchMission} from "@/app/lib/data";
-import {useState} from "react";
 
 function AccountDropdownMenu({anchor}: { anchor: 'top start' | 'bottom end' }) {
     return (
@@ -61,13 +58,9 @@ export function ApplicationLayout({
                                 <Square2StackIcon/>
                                 <SidebarLabel>Mission 1 - Old but gold</SidebarLabel>
                             </SidebarItem>
-                            <SidebarItem href="/orders" current={pathname.startsWith('/orders')}>
+                            <SidebarItem href="/mission2" current={pathname.startsWith('/mission2')}>
                                 <TicketIcon/>
-                                <SidebarLabel>Orders</SidebarLabel>
-                            </SidebarItem>
-                            <SidebarItem href="/settings" current={pathname.startsWith('/settings')}>
-                                <Cog6ToothIcon/>
-                                <SidebarLabel>Settings</SidebarLabel>
+                                <SidebarLabel>Mission 2 - Crossroads</SidebarLabel>
                             </SidebarItem>
                         </SidebarSection>
                     </SidebarBody>

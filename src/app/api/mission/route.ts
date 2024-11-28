@@ -1,6 +1,6 @@
-import {Mission} from "@/app/lib/definitions";
+import {getMission} from "@/app/lib/data";
 
 export async function GET() {
-    const mission: Mission = global.mission ? global.mission : new Mission();
-    return Response.json(mission);
+    const mission = getMission();
+    return Response.json(mission.toResponse());
 }

@@ -1,5 +1,5 @@
-import {Mission} from "@/app/lib/definitions";
+import {Mission} from "@/app/mission";
 
 export async function GET() {
-    global.mission = new Mission()
+    global.mission = new Mission();
 }
