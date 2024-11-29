@@ -62,6 +62,14 @@ export function ApplicationLayout({
                                 <TicketIcon/>
                                 <SidebarLabel>Mission 2 - Crossroads</SidebarLabel>
                             </SidebarItem>
+                            <SidebarItem href="/mission3" current={pathname.startsWith('/mission3')}>
+                                <TicketIcon/>
+                                <SidebarLabel>Mission 3 - Chillout</SidebarLabel>
+                            </SidebarItem>
+                            <SidebarItem href="/mission4" current={pathname.startsWith('/mission4')}>
+                                <TicketIcon/>
+                                <SidebarLabel>Mission 4 - Final encounter</SidebarLabel>
+                            </SidebarItem>
                         </SidebarSection>
                     </SidebarBody>
                 </Sidebar>
