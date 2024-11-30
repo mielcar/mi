@@ -47,7 +47,7 @@ export default function Page() {
                 <p>Świetna robota tajniaku!</p>
                 <p>Teraz będziesz miała trudniejsze zadanie, bo trzeba będzie chodzić. (brrrr)</p>
                 <p>Musisz przechwycić przesyłkę zaznaczoną na mapie.</p>
-                <p>Nasz kontakt twierdzi, że znajduje się ona down under (cokolwiek to nie znaczy).</p>
+                <p>Nasz kontakt twierdzi, że znajduje się ona down under, przedostatnia (cokolwiek to nie znaczy).</p>
             </Andrew>
             <Divider className="my-10" soft></Divider>
             <a href="https://maps.app.goo.gl/veu2E6mx3HLxMwCe7" target="_blank">Tajna Mapa (Click)</a>
